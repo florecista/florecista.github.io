@@ -1,4 +1,4 @@
-# Matthew Ryan â€” personal website draft
+# Matthew Ryan's personal website draft
 
 A static website ready for a future GitHub Pages repository. Only the contents of this `website` directory are needed for hosting. Do not publish the parent workspace, raw datasets, or application logs.
 
