@@ -13,3 +13,5 @@
 .shown-examples{margin:8px 0 0;padding-left:18px;line-height:1.6}.shown-examples li+li{margin-top:7px}.shown-examples li::marker{color:var(--cyan)}
 
 .gallery-frame.timeline-frame{aspect-ratio:auto}.gallery-frame.timeline-frame img{width:100%;height:auto;display:block}
+
+.gallery-frame.military-frame{aspect-ratio:auto}.gallery-frame.military-frame img{width:100%;height:auto;display:block}
