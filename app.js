@@ -9,11 +9,11 @@ const slides = [
   },
   {
     "image": "feature-captures/02-transforms.png",
-    "animation": "transforms-lab.gif",
+    "animation": "transforms-lab-framed.gif",
     "title": "Expand information with transforms",
     "subtitle": "Person → email → domain",
     "alt": "Bruce Schneier linked to his public email and the extracted domain schneier.com.",
-    "note": "Follow a public contact email to its domain. The screenshot shows the saved email-to-domain example. The existing animation also includes a manually verified registrar record; that step is not an automated lookup."
+    "note": "Follow a public contact email to its domain. The screenshot shows the saved email-to-domain example. The animation also includes a manually verified registrar record; that step is not an automated lookup."
   },
   {
     "image": "feature-captures/03-photo-import-selection.png",
