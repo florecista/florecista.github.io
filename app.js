@@ -5,7 +5,9 @@ const slides = [
     "title": "Build and explore a network",
     "subtitle": "People and their relationships",
     "alt": "Eight people with large portraits and labelled relationships in the network workspace.",
-    "note": "A focused example from the Underbelly dataset. Portraits and labelled connections bring the recorded relationships into one visual workspace."
+    "note": "A focused example from the Underbelly dataset. Portraits and labelled connections bring the recorded relationships into one visual workspace.",
+    "width": 3840,
+    "height": 2400
   },
   {
     "image": "feature-captures/02-transforms.png",
@@ -13,42 +15,66 @@ const slides = [
     "title": "Expand information with transforms",
     "subtitle": "Person → email → domain",
     "alt": "Bruce Schneier linked to his public email and the extracted domain schneier.com.",
-    "note": "Follow a public contact email to its domain. The screenshot shows the saved email-to-domain example. The animation also includes a manually verified registrar record; that step is not an automated lookup."
+    "note": "Follow a public contact email to its domain. The screenshot shows the saved email-to-domain example. The animation also includes a manually verified registrar record; that step is not an automated lookup.",
+    "width": 3840,
+    "height": 2400
   },
   {
     "image": "feature-captures/03-photo-import-selection.png",
     "title": "Turn photographs into graph entities",
     "subtitle": "Drop a photo, select faces, review portraits",
     "alt": "Photo import with five detected faces and three selected in green.",
-    "note": "Import a JPEG or PNG, select detected faces or mark them manually, then review portraits before adding person nodes. Processing runs locally, and source and crop metadata stay with the imported entities."
+    "note": "Import a JPEG or PNG, select detected faces or mark them manually, then review portraits before adding person nodes. Processing runs locally, and source and crop metadata stay with the imported entities.",
+    "width": 3840,
+    "height": 2400
   },
   {
     "image": "feature-captures/04-connection-paths.png",
     "title": "Find connections between entities",
     "subtitle": "Shortest paths through the network",
     "alt": "Connection Paths panel showing a four-step route with the route entities selected in the graph.",
-    "note": "Choose two entities to find their shortest connections. Inspect the relationship steps and select the route in the graph. This example ignores relationship direction, as shown in the controls."
+    "note": "Choose two entities to find their shortest connections. Inspect the relationship steps and select the route in the graph. This example ignores relationship direction, as shown in the controls.",
+    "width": 3840,
+    "height": 2400
   },
   {
     "image": "feature-captures/05-groupings.png",
     "title": "Organise complex networks",
     "subtitle": "Named groups, visible relationships",
     "alt": "Get Smart characters grouped in blue CONTROL and red KAOS boundaries.",
-    "note": "Named, coloured groups make membership easier to see while preserving relationships across the wider network. The fictional Get Smart example separates CONTROL and KAOS."
+    "note": "Named, coloured groups make membership easier to see while preserving relationships across the wider network. The fictional Get Smart example separates CONTROL and KAOS.",
+    "width": 3840,
+    "height": 2400
   },
   {
     "image": "feature-captures/07-paris-map.png",
     "title": "Explore locations on the map",
     "subtitle": "Paris attacks dataset - geographic context",
     "alt": "Map tab showing six recorded locations around Paris and Charleroi, with country borders, highways and nearby cities.",
-    "note": "Explore the geographic context of the Paris attacks dataset. Six locations with stored coordinates appear on the map, including Paris, Saint-Denis, the Stade de France, Bataclan, Le Petit Cambodge and Charleroi. Layer controls and location checkboxes let you adjust the view."
+    "note": "Explore the geographic context of the Paris attacks dataset. Six locations with stored coordinates appear on the map, including Paris, Saint-Denis, the Stade de France, Bataclan, Le Petit Cambodge and Charleroi. Layer controls and location checkboxes let you adjust the view.",
+    "width": 3840,
+    "height": 2400
+  },
+  {
+    "image": "feature-captures/08-powerpoint-export.png",
+    "animation": "powerpoint-export-demo.gif",
+    "demoLabel": "export demo",
+    "title": "Export investigations to PowerPoint",
+    "subtitle": "Selected views and editable slide commentary",
+    "alt": "Export briefing dialog over the Paris investigation, with network graph and map selected and a PowerPoint slide preview.",
+    "animationAlt": "Four-stage export walkthrough: investigation graph, export dialog, graph slide in PowerPoint, then map slide in PowerPoint.",
+    "note": "Create a briefing from selected investigation views. Add editable titles, observations and an optional assessment, then export a PowerPoint deck. This walkthrough shows the resulting graph and map slides opened in Microsoft PowerPoint.",
+    "width": 2560,
+    "height": 1368
   },
   {
     "image": "feature-captures/06-provenance.png",
     "title": "Trace information back to its source",
     "subtitle": "Source files, hashes and crop coordinates",
     "alt": "Explanatory graphic linking a source photograph to its imported portrait and generated source metadata.",
-    "note": "An explanatory graphic using metadata generated by the photo-import workflow. The source filename, SHA-256 hash and crop coordinates connect a portrait to its source image. This is an illustration of recorded provenance, rather than a screenshot of an application inspector."
+    "note": "An explanatory graphic using metadata generated by the photo-import workflow. The source filename, SHA-256 hash and crop coordinates connect a portrait to its source image. This is an illustration of recorded provenance, rather than a screenshot of an application inspector.",
+    "width": 3840,
+    "height": 2400
   }
 ];
 let activeSlide=0;
@@ -57,8 +83,38 @@ const arrow='<span aria-hidden="true">↗</span>';
 function home(){return `<section class="home"><div class="hero"><div class="hero-copy"><div class="eyebrow">An investigator’s perspective</div><h1>Follow the evidence.<br><span>Explore the<br>connections.</span></h1><p>I’m Matthew Ryan. This is where I explore the intersection of investigation and technology—building tools to make complex information easier to examine and understand.</p><a class="primary-link" href="#projects/network">Explore my project ${arrow}</a></div><a class="hero-display" href="#projects/network" aria-label="Explore the Network Analysis Tool"><div class="window-bar"><span>NETWORK ANALYSIS / CASE STUDY 01</span><span class="window-lights" aria-hidden="true"><i></i><i></i><i></i></span></div><img src="assets/feature-captures/01-network-overview.png" alt="Underbelly case-study network with portraits, names and relationship labels"><div class="image-caption">Making relationships visible <span>VIEW PROJECT ↗</span></div></a></div><div class="home-bottom"><div><h2 class="section-label">01 / THE APPROACH</h2><p class="intro-note">Investigation starts with questions. My projects explore how visual analysis and purpose-built software can help organise information, reveal connections and support closer examination.</p></div><div><h2 class="section-label">02 / PROJECT INDEX</h2><a class="project-link" href="#projects/network"><span>01</span><div>Network Analysis Tool<small>RELATIONSHIPS / VISUAL ANALYSIS</small></div>${arrow}</a></div></div></section>`}
 function about(){return `<section class="about-page"><div class="eyebrow">ABOUT MATTHEW RYAN</div><h1>A lifelong interest<br>in building software<span>_</span></h1><div class="about-copy"><p>My passion for software development began in 1983 with the Z80-powered Dick Smith VZ200. In the 1990s, I moved into Windows development with Visual Basic, C++ and Delphi, followed by Java and Enterprise Java in the 2000s.</p><p>My career has taken me across both government and private industry. The projects I have found most rewarding are those supporting Defence and law enforcement.</p><p>These days, I work in Java during the day and develop my own projects in Python in the evenings.</p></div><a class="primary-link" href="#projects/network">Explore my projects ${arrow}</a></section>`}
 function sidebar(project){return `<aside class="sidebar"><p class="section-label">PROJECT DIRECTORY</p><a class="side-link ${project==='network'?'active':''}" href="#projects/network" ${project==='network'?'aria-current="page"':''}><small>01 / VISUAL ANALYSIS</small>Network Analysis Tool</a><div class="sidebar-bottom"><span>RESEARCH IN PROGRESS</span>A collection of tools,<br>experiments and case studies.</div></aside>`}
-function network(){return `<div class="breadcrumb">PROJECTS / <span>01 — NETWORK ANALYSIS</span></div><div class="project-heading"><div><h1>Network Analysis Tool<span style="color:var(--cyan)">_</span></h1><p>Exploring the relationships behind the information.</p></div><span class="badge">IN DEVELOPMENT</span></div><div class="project-columns"><section class="gallery" aria-label="Network Analysis Tool screenshots"><div class="gallery-top"><span>APPLICATION / <b id="slide-number">01</b></span><span>FEATURE SHOWCASE</span></div><div class="gallery-frame"><img id="gallery-image" src="assets/feature-captures/01-network-overview.png" alt=""><button class="expand" id="expand-image">View full size ↗</button></div><div class="gallery-caption"><div aria-live="polite" aria-atomic="true"><h2 id="slide-title"></h2><p id="slide-subtitle"></p></div><div class="arrows"><button class="arrow" id="previous" aria-label="Previous screenshot">←</button><button class="arrow" id="next" aria-label="Next screenshot">→</button></div></div><div class="dots" aria-label="Choose screenshot">${slides.map((s,i)=>`<button class="dot" data-slide="${i}" aria-label="Screenshot ${i+1}: ${s.title}" aria-current="${i===activeSlide}"></button>`).join('')}</div><button class="primary-link" id="play-demo" hidden>Play transform demo ▶</button><p class="case-note" id="case-note"></p><p class="case-note" id="case-sources"></p></section><aside class="description"><h2>FROM INFORMATION TO CONNECTIONS</h2><p>A visual workspace for examining people, events, places and the relationships between them.</p><p>Build a network, expand it with transforms and turn source photographs into structured entities.</p><h2>EXPLORE THE NETWORK</h2><p>Find connection paths between entities. Organise related records into named groups, then collapse or expand them as you explore. Switch to the Map tab to examine recorded locations in their geographic context.</p><h2>KEEP THE SOURCE IN VIEW</h2><p>Imported portraits retain their source filename, file hash and crop coordinates. The broader provenance system records transform inputs and histories to support review of how derived information was created.</p><dl><dt>FOCUS</dt><dd>Investigation &amp; relationship analysis</dd><dt>WORKSPACES</dt><dd>Investigation Notebook<br>Investigation Lab</dd><dt>FEATURES</dt><dd><ul class="shown-examples"><li>Network mapping</li><li>Transforms</li><li>Photo import</li><li>Connection paths</li><li>Groupings</li><li>Maps</li><li>Provenance</li></ul></dd></dl><div class="tag-list"><span class="tag">Networks</span><span class="tag">Transforms</span><span class="tag">Photo import</span><span class="tag">Provenance</span></div></aside></div>`}
-function updateSlide(){const s=slides[activeSlide];const img=document.querySelector('#gallery-image');img.src='assets/'+s.image;img.alt=s.alt;const play=document.querySelector('#play-demo');play.hidden=!s.animation;play.textContent='Play transform demo ▶';play.onclick=()=>{const playing=play.dataset.playing==='true';img.src='assets/'+(playing?s.image:s.animation);play.dataset.playing=String(!playing);play.textContent=playing?'Play transform demo ▶':'Stop animation ■'};play.dataset.playing='false';document.querySelector('#slide-number').textContent=String(activeSlide+1).padStart(2,'0');document.querySelector('#slide-title').textContent=s.title;document.querySelector('#slide-subtitle').textContent=s.subtitle;document.querySelector('#case-note').textContent=s.note;const sources=document.querySelector('#case-sources');sources.replaceChildren();for(const [label,url] of s.sources||[]){if(sources.childNodes.length)sources.append(' · ');const link=document.createElement('a');link.href=url;link.textContent=label;link.target='_blank';link.rel='noopener noreferrer';sources.append(link)}sources.hidden=!s.sources;document.querySelectorAll('[data-slide]').forEach((b,i)=>b.setAttribute('aria-current',String(i===activeSlide)))}
+function network(){return `<div class="breadcrumb">PROJECTS / <span>01 — NETWORK ANALYSIS</span></div><div class="project-heading"><div><h1>Network Analysis Tool<span style="color:var(--cyan)">_</span></h1><p>Exploring the relationships behind the information.</p></div><span class="badge">IN DEVELOPMENT</span></div><div class="project-columns"><section class="gallery" aria-label="Network Analysis Tool screenshots"><div class="gallery-top"><span>APPLICATION / <b id="slide-number">01</b></span><span>FEATURE SHOWCASE</span></div><div class="gallery-frame"><img id="gallery-image" src="assets/feature-captures/01-network-overview.png" alt=""><button class="expand" id="expand-image">View full size ↗</button></div><div class="gallery-caption"><div aria-live="polite" aria-atomic="true"><h2 id="slide-title"></h2><p id="slide-subtitle"></p></div><div class="arrows"><button class="arrow" id="previous" aria-label="Previous screenshot">←</button><button class="arrow" id="next" aria-label="Next screenshot">→</button></div></div><div class="dots" aria-label="Choose screenshot">${slides.map((s,i)=>`<button class="dot" data-slide="${i}" aria-label="Screenshot ${i+1}: ${s.title}" aria-current="${i===activeSlide}"></button>`).join('')}</div><button class="primary-link" id="play-demo" hidden>Play transform demo ▶</button><p class="case-note" id="case-note"></p><p class="case-note" id="case-sources"></p></section><aside class="description"><h2>FROM INFORMATION TO CONNECTIONS</h2><p>A visual workspace for examining people, events, places and the relationships between them.</p><p>Build a network, expand it with transforms and turn source photographs into structured entities.</p><h2>EXPLORE THE NETWORK</h2><p>Find connection paths between entities. Organise related records into named groups, then collapse or expand them as you explore. Switch to the Map tab to examine recorded locations in their geographic context.</p><h2>SHARE YOUR INVESTIGATION</h2><p>Export selected graph, timeline or map views to Microsoft PowerPoint. Add editable slide titles, observations and an optional assessment to prepare a briefing.</p><h2>KEEP THE SOURCE IN VIEW</h2><p>Imported portraits retain their source filename, file hash and crop coordinates. The broader provenance system records transform inputs and histories to support review of how derived information was created.</p><dl><dt>FOCUS</dt><dd>Investigation &amp; relationship analysis</dd><dt>WORKSPACES</dt><dd>Investigation Notebook<br>Investigation Lab</dd><dt>FEATURES</dt><dd><ul class="shown-examples"><li>Network mapping</li><li>Transforms</li><li>Photo import</li><li>Connection paths</li><li>Groupings</li><li>Maps</li><li>PowerPoint export</li><li>Provenance</li></ul></dd></dl><div class="tag-list"><span class="tag">Networks</span><span class="tag">Transforms</span><span class="tag">Photo import</span><span class="tag">Provenance</span></div></aside></div>`}
+function updateSlide(){
+ const s=slides[activeSlide];
+ const img=document.querySelector('#gallery-image');
+ img.width=s.width;img.height=s.height;
+ img.src='assets/'+s.image;img.alt=s.alt;
+ const play=document.querySelector('#play-demo');
+ const label=s.demoLabel||'transform demo';
+ play.hidden=!s.animation;play.textContent='Play '+label;
+ play.setAttribute('aria-pressed','false');
+ play.onclick=()=>{
+  const playing=play.dataset.playing==='true';
+  img.src='assets/'+(playing?s.image:s.animation);
+  img.alt=playing?s.alt:(s.animationAlt||s.alt);
+  play.dataset.playing=String(!playing);
+  play.setAttribute('aria-pressed',String(!playing));
+  play.textContent=playing?'Play '+label:'Stop animation';
+ };
+ play.dataset.playing='false';
+ document.querySelector('#slide-number').textContent=String(activeSlide+1).padStart(2,'0');
+ document.querySelector('#slide-title').textContent=s.title;
+ document.querySelector('#slide-subtitle').textContent=s.subtitle;
+ document.querySelector('#case-note').textContent=s.note;
+ const sources=document.querySelector('#case-sources');sources.replaceChildren();
+ for(const [label,url] of s.sources||[]){
+  if(sources.childNodes.length)sources.append(' / ');
+  const link=document.createElement('a');link.href=url;link.textContent=label;
+  link.target='_blank';link.rel='noopener noreferrer';sources.append(link);
+ }
+ sources.hidden=!s.sources;
+ document.querySelectorAll('[data-slide]').forEach((b,i)=>b.setAttribute('aria-current',String(i===activeSlide)));
+}
 function render(){const route=location.hash.slice(1);const isProjects=route.startsWith('projects');const isAbout=route==='about';const project='network';main.innerHTML=isProjects?`<div class="projects-shell">${sidebar(project)}<section class="project-main">${network()}</section></div>`:isAbout?about():home();document.querySelectorAll('[data-nav]').forEach(a=>{const active=a.dataset.nav===(isProjects?'projects':isAbout?'about':'home');a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});document.title=isAbout?'About - Matthew Ryan':isProjects?'Network Analysis Tool — Matthew Ryan':'Matthew Ryan — Investigation × Technology';if(isProjects&&project==='network'){updateSlide();document.querySelectorAll('[data-slide]').forEach(b=>b.addEventListener('click',()=>{activeSlide=Number(b.dataset.slide);updateSlide()}));document.querySelector('#previous').onclick=()=>{activeSlide=(activeSlide+slides.length-1)%slides.length;updateSlide()};document.querySelector('#next').onclick=()=>{activeSlide=(activeSlide+1)%slides.length;updateSlide()};document.querySelector('#expand-image').onclick=()=>openImage();document.querySelector('.gallery').addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();activeSlide=(activeSlide+(e.key==='ArrowRight'?1:slides.length-1))%slides.length;updateSlide()}})}}
 const dialog=document.querySelector('#image-dialog');
 function openImage(s=slides[activeSlide]){document.querySelector('#dialog-title').textContent=s.title;const img=document.querySelector('#full-image');img.src='assets/'+s.image;img.alt=s.alt;dialog.showModal();document.body.style.overflow='hidden';document.querySelector('.image-scroll').scrollTo(0,0)}
